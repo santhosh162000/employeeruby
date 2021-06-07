@@ -1,0 +1,38 @@
+.homepage {
+    margin-top: 30px;
+}
+
+.homepage h1 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.homepage img {
+    padding-top: 70px;
+    width: 100%;
+    margin: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+.homebutton {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.homebtn1 {
+    margin-right: 16px;
+    margin-bottom: 6px;
+}
+
+@media screen and (min-width: 1200px) {
+    .homepage img {
+        position: fixed;
+        right: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        width: 50%;
+    }
+}

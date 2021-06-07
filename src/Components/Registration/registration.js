@@ -1,70 +1,106 @@
-import React from 'react'
+import React, { useState } from "react";
 import './registration.css';
-// import { Link } from 'react-router-dom';
-function registration() {
+import { Link, useHistory} from "react-router-dom";
+import axios from 'axios';
+
+function Registration() {
+    const [signupDetails, setsignupDetails] = useState({
+        name: "",
+        email: "",
+        password: "",
+        empcode: "",
+        address: "",
+        joiningdate: "",
+    
+      });
+      
+      let history = useHistory();
+    
+      const onChangeHandler = (e) => {
+        let user = signupDetails;
+        user[e.target.name] = e.target.value;
+        setsignupDetails(user);
+      };
+    
+      const onSubmitHandler = async (e) => {
+        e.preventDefault();
+        axios.post(`https://employeerubybackend.herokuapp.com/SignUp`, { signupDetails })
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+            console.log(res.status);
+            if(res.data.result==="Account Created")
+            {
+              alert("Successfully registered...");
+              history.push('/login')
+            }
+            else
+            {
+              alert("Account exist with this email.");
+            }
+          })
+        return;        
+      }
+
     return (
-        <div class="registration">
-            <div class="wrapper">
-                <div class="title">
+        <div className="registration">
+            <div className="wrapper">
+                <div className="title">
                 Registration Form
                 </div>
-                <div class="form">
-                <div class="inputfield">
-                    <label>First Name</label>
-                    <input type="text" class="input"/>
-                </div>  
-                    <div class="inputfield">
-                    <label>Last Name</label>
-                    <input type="text" class="input"/>
-                </div>  
-                <div class="inputfield">
-                    <label>Password</label>
-                    <input type="password" class="input"/>
-                </div>  
-                <div class="inputfield">
-                    <label>Confirm Password</label>
-                    <input type="password" class="input"/>
-                </div> 
-                    <div class="inputfield">
-                    <label>Gender</label>
-                    <div class="custom_select">
-                        <select>
-                        <option value="">Select</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        </select>
+                <form onSubmit={onSubmitHandler}>
+                <div className="form">
+                <input
+                type="text"
+                placeholder="Name"
+                name="name"
+                onChange={onChangeHandler}
+              /><br></br>
+
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                onChange={onChangeHandler}
+              /><br></br>
+
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={onChangeHandler}
+              /><br></br>
+
+              <input
+                type="text"
+                placeholder="Employee ID"
+                name="empcode"
+                onChange={onChangeHandler}
+              /><br></br>
+
+              <input
+                type="text"
+                placeholder="Address"
+                name="address"
+                onChange={onChangeHandler}
+              /><br></br>
+
+              <input
+                type="date"
+                placeholder="Joining date"
+                name="joiningdate"
+                onChange={onChangeHandler}
+              /><br></br>
+
+              <input type="submit" value="SUBMIT" />
+              <Link to="/login">
+                Have an account ?
+              </Link>
                     </div>
-                </div> 
-                    <div class="inputfield">
-                    <label>Email Address</label>
-                    <input type="text" class="input"/>
-                </div> 
-                <div class="inputfield">
-                    <label>Phone Number</label>
-                    <input type="text" class="input"/>
-                </div> 
-                <div class="inputfield">
-                    <label>Address</label>
-                    <textarea class="textarea"></textarea>
-                </div> 
-                <div class="inputfield">
-                    <label>Postal Code</label>
-                    <input type="text" class="input"/>
-                </div> 
-                <div class="inputfield terms">
-                    <label class="check">
-                        <input type="checkbox"/>
-                        <span class="checkmark"></span>
-                    </label>
-                    <p>Agreed to terms and conditions</p>
-                </div> 
-                <div class="inputfield">
-                    <input type="submit" value="Register" class="btn"/>
-                </div>
-                </div>
+                </form>
             </div>
         </div>
     )
 }
 
-export default registration;
+export default Registration;

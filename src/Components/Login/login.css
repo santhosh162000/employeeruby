@@ -8,10 +8,10 @@
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
-	margin: -20px 0 20px;
+	margin: -100px 0 20px;
 }
 
-.container {
+.acontainer {
 	background-color: #fff;
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
@@ -23,35 +23,35 @@
 	min-height: 480px;
 }
 
-.form-container {
+.form-acontainer {
 	position: absolute;
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
 }
 
-.sign-in-container {
+.sign-in-acontainer {
 	left: 0;
 	width: 50%;
 	z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.acontainer.right-panel-active .sign-in-acontainer {
 	transform: translateX(100%);
 }
 
-.sign-up-container {
+.sign-up-acontainer {
 	left: 0;
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.acontainer.right-panel-active .sign-up-acontainer {
 	transform: translateX(100%);
 	opacity: 1;
 	z-index: 5;
-	animation: show 0.6s;
+	animation: show 0.1s;
 }
 
 @keyframes show {
@@ -66,7 +66,7 @@
 	}
 }
 
-.overlay-container {
+.overlay-acontainer {
 	position: absolute;
 	top: 0;
 	left: 50%;
@@ -77,14 +77,12 @@
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.acontainer.right-panel-active .overlay-acontainer{
 	transform: translateX(-100%);
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #6668f4;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -97,7 +95,7 @@
 	transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.acontainer.right-panel-active .overlay {
   	transform: translateX(50%);
 }
 
@@ -120,7 +118,7 @@
 	transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.acontainer.right-panel-active .overlay-left {
 	transform: translateX(0);
 }
 
@@ -129,24 +127,24 @@
 	transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.acontainer.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
 
 @media only screen and (max-width: 800px){
-    .overlay-container {
+    .overlay-acontainer {
         display: none;
     }
-    .container {
+    .acontainer {
         width: 400px;
     }
-    .sign-in-container {
+    .sign-in-acontainer {
         width: 100%;
     }
-    .sign-up-container {
+    .sign-up-acontainer {
         width: 100%;
     }
-    .container.right-panel-active .sign-up-container {
+    .acontainer.right-panel-active .sign-up-acontainer {
         transform: translateX(0%);
     }
     .login {
