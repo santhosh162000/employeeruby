@@ -18,20 +18,20 @@ class Navbar extends Component {
                 </div>
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     <li>
-                        <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
-                            <a className="nav-links" href="/" style={{ textDecoration: "none", color: "#fff" }}>Home</a>
+                        <Link to="/" className="nav-links" style={{ textDecoration: "none", color: "#fff" }}>
+                            Home
                         </Link>
                     </li>
 
                     <li>
-                        <Link to="/login" style={{ textDecoration: "none", color: "#fff" }}>
-                            <a className="nav-links" href="/login" style={{ textDecoration: "none", color: "#fff" }}>Sign In</a>
+                        <Link to="/login" className="nav-links" style={{ textDecoration: "none", color: "#fff" }}>
+                            Sign In
                         </Link>
                     </li>
 
                     <li>
-                        <Link to="/signup" style={{ textDecoration: "none", color: "#fff" }}>
-                            <a className="nav-links" href="/signup" style={{ textDecoration: "none", color: "#fff" }}>Sign Up</a>
+                        <Link to="/signup" className="nav-links" style={{ textDecoration: "none", color: "#fff" }}>
+                            Sign Up
                         </Link>
                     </li>
                 </ul>
