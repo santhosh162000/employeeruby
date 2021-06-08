@@ -31,7 +31,7 @@ function Registration() {
             console.log(res.status);
             if(res.data.result==="Account Created")
             {
-              alert("Successfully registered...");
+              alert("Successfully registered. Please login to continue...");
               history.push('/login')
             }
             else
